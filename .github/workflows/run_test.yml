@@ -10,22 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-        with:
-          node-version: '20'
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x'
-
-      - name: Run unit tests
-        run: pytest tree.py
-        working-directory: . 
-
-      - name: Upload test results
-        uses: actions/upload-artifact@v3.0.0
-        with:
-          name: test-results
-          path: tree.py 
+    - name: Run unit tests
+      run: python -m unittest discover
